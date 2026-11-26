@@ -15,4 +15,12 @@ public class UsuarioService {
         return usuarioRepository.save(usuario);
 
     }
+
+    public boolean login(String email, Integer password) {
+        Usuario usuario = usuarioRepository.findByEmail(email);
+        if (email == usuario.getEmail() && password == usuario.getSenha()) {
+            return true; 
+        } 
+        return false;
+    }
 }
